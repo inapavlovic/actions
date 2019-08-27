@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ActionsComponent } from './actions/actions.component';
-import { ActionComponent } from './actions/action/action.component';
+import { CreateActionComponent } from './actions/create-action/create-action.component';
 import { ActivitiesComponent } from './activities/activities.component';
 import { CreateActivityComponent } from './activities/create-activity/create-activity.component';
 import { ActivityListComponent } from './activities/activity-list/activity-list.component';
@@ -19,7 +20,7 @@ import { EmptyComponent } from './activities/empty/empty.component';
     AppComponent,
     NavigationComponent,
     ActionsComponent,
-    ActionComponent,
+    CreateActionComponent,
     ActivitiesComponent,
     CreateActivityComponent,
     ActivityListComponent,
@@ -29,6 +30,7 @@ import { EmptyComponent } from './activities/empty/empty.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

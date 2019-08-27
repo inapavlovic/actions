@@ -1,0 +1,7 @@
+<form (ngSubmit)="create(formObject)" #formObject="ngForm">
+	<label>Action<input type="text" name="action" ngModel required></label>
+	<label><input type="number" name="times" ngModel required pattern="^[1-9]+[0-9]*$">times</label>
+	<button type="submit" [disabled]="!formObject.valid">{{ editMode ? 'Update' : 'Add' }}</button>
+	<button *ngIf="editMode" type="button" (click)="delete()">Delete</button>
+	<button type="button" (click)="clear()">Clear</button>
+</form>

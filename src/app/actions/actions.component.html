@@ -1,2 +1,5 @@
-<app-action></app-action>
-<p *ngFor="let action of actions">{{ action.name }} {{ action.times }}</p>
+<app-create-action></app-create-action>
+<a routerLink="/actions" (click)="editAction(idx)" *ngFor="let action of actions; let idx = index">
+	{{ action.name }} {{ action.times }}
+</a>
+

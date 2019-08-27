@@ -18,4 +18,8 @@ export class ActionsComponent implements OnInit {
   	this.actions = this.actionService.getActions();
   }
 
+  editAction(index: number) {
+  	this.actionService.editing$.next(index);
+  }
+
 }
