@@ -1,0 +1,8 @@
+<div>
+	<h4>{{ activity.name }}</h4>
+	<ul>
+		<li *ngFor="let action of activity.actions">{{ action.name }} {{ action.times }}</li>
+	</ul>
+	<button (click)="addToActions()">Add to Actions</button>
+	<button (click)="editActivity()">Edit Activity</button>
+</div>
