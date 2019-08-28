@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { Activity } from '../../activity';
 
@@ -6,6 +6,7 @@ import { Activity } from '../../activity';
 @Component({
   selector: 'app-activity',
   templateUrl: './activity.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styles: []
 })
 export class ActivityComponent implements OnInit {
