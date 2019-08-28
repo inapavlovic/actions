@@ -1,1 +1,13 @@
-<p>create-activity works!</p>
+<form [formGroup]="activityForm" (ngSubmit)="submit()">
+	<button type="submit" [disabled]="!activityForm.valid">Save</button>
+	<button type="button" (click)="cancel()">Cancel</button>
+	<label>Name<input type="text" formControlName="name"></label>
+	<div formArrayName="actions">
+		<div *ngFor="let control of activityForm.get('actions').controls; let idx = index" [formGroupName]="idx">
+			<input type="text" formControlName="name">
+			<input type="number" formControlName="times">
+			<button type="button" (click)="deleteAction(idx)">Delete Action</button>
+		</div>
+		<button type="button" (click)="addAction()">Add Action</button>
+	</div>
+</form>

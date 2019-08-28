@@ -1,4 +1,4 @@
-<button (click)="createActivity()">New Activity</button>
+<button (click)="goToCreateActivity()">New Activity</button>
 <div>
 	<app-activity *ngFor="let activityElement of activities; let idx = index" [activity]="activityElement" [id]="idx"></app-activity>
 </div>

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { Activity } from '../activity';
 import { ActivityService } from '../activity.service';
@@ -10,21 +11,30 @@ import { ActivityService } from '../activity.service';
   templateUrl: './activity-list.component.html',
   styles: []
 })
-export class ActivityListComponent implements OnInit {
+export class ActivityListComponent implements OnInit, OnDestroy {
 	activities: Activity[];
+  subscription: Subscription;
 
   constructor(
   	private activityService: ActivityService, 
   	private router: Router, 
-  	private route: ActivatedRoute
+  	private activatedRoute: ActivatedRoute
 	) { }
 
   ngOnInit() {
+    this.subscription = this.activityService.activityChange$
+      .subscribe( (activities: Activity[]) => { 
+        this.activities = activities 
+      } );
   	this.activities = this.activityService.getActivities();
   }
 
-  createActivity() {
-  	this.router.navigate(['create'], { relativeTo: this.route });
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  goToCreateActivity() {
+  	this.router.navigate(['create'], { relativeTo: this.activatedRoute });
   }
 
 }

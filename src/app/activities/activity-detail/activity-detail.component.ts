@@ -17,8 +17,7 @@ export class ActivityDetailComponent implements OnInit {
   constructor(
   	private activityService: ActivityService, 
   	private activatedRoute: ActivatedRoute, 
-  	private router: Router, 
-    private route: ActivatedRoute
+  	private router: Router
   ) { }
 
   ngOnInit() {
@@ -33,7 +32,12 @@ export class ActivityDetailComponent implements OnInit {
   }
 
   editActivity() {
-    this.router.navigate(['edit'], { relativeTo: this.route });
+    this.router.navigate(['edit'], { relativeTo: this.activatedRoute });
+  }
+
+  deleteActivity() {
+    this.activityService.deleteActivity(this.id);
+    this.router.navigate(['/activities']);
   }
 
 }
