@@ -8,7 +8,7 @@ import { ActionService } from '../action.service';
 
 @Injectable({ providedIn: 'root' })
 export class ActivityService {
-	private activities: Activity[] = [ new Activity('walk', [ new Action('steps', 4000)]), new Activity('run', [])];
+	private activities: Activity[] = [];
   activityChange$ = new Subject<Activity[]>();
 
   constructor(private actionService: ActionService) { }
@@ -19,6 +19,11 @@ export class ActivityService {
 
   getActivities() {
   	return [...this.activities];
+  }
+
+  setActivities(activities: Activity[]) {
+    this.activities = activities;
+    this.activityChange$.next([...this.activities]);
   }
 
   addActions(actions: Action[]) {

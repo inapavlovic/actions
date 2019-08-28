@@ -1,4 +1,8 @@
 <nav>
 	<a routerLink="/activities" routerLinkActive="active">Activities</a>
 	<a routerLink="/actions" routerLinkActive="active">Actions</a>
+	<a routerLink="/auth" *ngIf="!isAuthenticated" routerLinkActive="active">Authenticate</a>
+	<button (click)="saveData()">Save Activities</button>
+	<button (click)="fetchData()">Fetch Activities</button>
+	<button *ngIf="isAuthenticated" (click)="logout()">Logout</button>
 </nav>

@@ -1,0 +1,7 @@
+<span *ngIf="error">{{ error }}</span>
+<form (ngSubmit)="submit(authForm)" #authForm="ngForm">
+	<label>E-Mail<input type="email" name="email" ngModel required email></label>
+	<label>Password<input type="password" name="password" ngModel required minlength="6"></label>
+	<button type="submit" [disabled]="!authForm.valid">{{ isLogin ? 'Login' : 'Sign Up'}}</button>
+	<button type="button" (click)="toggle()">Switch to {{ isLogin ? 'Sign Up' : 'Login' }}</button>
+</form>

@@ -8,7 +8,7 @@ import { Action } from './action';
 export class ActionService {
 	editing$ = new Subject<number>();
 
-  private actions: Action[] = [ new Action('steps', 7000), new Action('duration', 30)];
+  private actions: Action[] = [];
 
 	getAction(index: number) {
 		return this.actions[index];
