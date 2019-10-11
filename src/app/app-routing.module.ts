@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
-import { ActivitiesComponent } from './activities/activities.component';
-import { ActionsComponent } from './actions/actions.component';
-
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/activities', pathMatch: 'full' },
