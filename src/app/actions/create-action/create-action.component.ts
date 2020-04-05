@@ -12,7 +12,7 @@ import { Action } from '../../action';
   styles: []
 })
 export class CreateActionComponent implements OnInit, OnDestroy {
-	@ViewChild('formObject', { static: false }) actionForm: NgForm; 
+	@ViewChild('formObject') actionForm: NgForm; 
 	subscription: Subscription;
 	editMode = false;
 	actionIndex: number;

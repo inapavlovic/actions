@@ -3,7 +3,7 @@
 	<button type="button" (click)="cancel()">Cancel</button>
 	<label>Name<input type="text" formControlName="name"></label>
 	<div formArrayName="actions">
-		<div *ngFor="let control of activityForm.get('actions').controls; let idx = index" [formGroupName]="idx">
+		<div *ngFor="let control of actions.controls; let idx = index" [formGroupName]="idx">
 			<input type="text" formControlName="name">
 			<input type="number" formControlName="times">
 			<button type="button" (click)="deleteAction(idx)">Delete Action</button>

@@ -1,6 +1,6 @@
 # AngularActions
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
+This project was generated with version 8.3.0 and updated to 9.1.0.
 
 Manage Activity contains Actions
 

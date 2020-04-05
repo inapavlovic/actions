@@ -16,6 +16,10 @@ export class CreateActivityComponent implements OnInit {
 	editMode = false;
   activityForm: FormGroup;
 
+  get actions() { 
+    return this.activityForm.get('actions') as FormArray; 
+  }
+
   constructor(
     private activatedRoute: ActivatedRoute, 
     private activityService: ActivityService, 
@@ -41,8 +45,7 @@ export class CreateActivityComponent implements OnInit {
   }
 
   addAction() {
-    // cast to FormArray
-    (<FormArray>this.activityForm.get('actions')).push( new FormGroup({
+    this.actions.push( new FormGroup({
       'name': new FormControl(null, Validators.required),
       'times': new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)])
     }))
